@@ -10,14 +10,12 @@ class Tasks extends Component {
 	}
 	render() {
 		const listTasks = this.props.tasks.map((item, i) => {
-			return <div key={i}>{item}</div>
+			return <div className="taskForList" key={i}>{item}</div>
 		})
 		return (
-			<div>
-				<div>
-					{listTasks}
-					<br/>
-				</div>
+			<div id="taskContainer">
+				{listTasks}
+				<br/>
 			</div>
 		)
 	}

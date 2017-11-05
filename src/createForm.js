@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './createForm.css';
 
 class CreateForm extends Component {
 	constructor() {
@@ -13,20 +14,18 @@ class CreateForm extends Component {
 		this.setState(state);
 	}
 	handleSubmit = (e) => {
-		const state = this.state;
 		e.preventDefault();
 		console.log(this.props);
-		this.props.createTask(state.inputValue);
-		state.inputValue = '';
-		this.setState(state);
+		this.props.createTask(this.state.inputValue);
 	}
 	render() {
 		return (
-			<form>
-				<label>New Task</label>
-					<textarea name="inputValue" onChange={this.handleInput} value={this.state.inputValue}/>
+			<form id="newTaskForm">
+				<label id="formTitle">Add New Task</label>
 					<br/>
-				<button onClick={this.handleSubmit}>Add</button>
+					<textarea id="newTask" name="inputValue" onChange={this.handleInput} value={this.state.inputValue}/>
+					<br/>
+				<button id="submit" onClick={this.handleSubmit}>Add</button>
 			</form>
 		)
 	}

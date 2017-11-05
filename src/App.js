@@ -7,7 +7,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      tasks: ['Finish react.js homework.']
+      tasks: ["Finish react.js homework."]
     }
   }
   createTask = (task) => {
@@ -24,8 +24,8 @@ class App extends Component {
           </header>
         </div>
         <div>
-          <Tasks tasks={this.state.tasks} createTask={this.state.createTask}/>
-          <CreateForm/>
+          <Tasks tasks={this.state.tasks}/>
+          <CreateForm createTask={this.createTask}/>
         </div>
       </div>
     );

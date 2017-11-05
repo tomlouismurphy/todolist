@@ -1,0 +1,16 @@
+#newTask {
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 150px;
+	width: 250px;
+}
+
+#formTitle {
+	font-weight: bold;
+}
+
+#newTaskForm {
+	margin: auto;
+	margin-top: 100px;
+	width: 50%;
+}
