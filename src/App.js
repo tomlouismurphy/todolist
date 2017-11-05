@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CreateForm from './createForm.js';
+import Tasks from './Tasks.js';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      tasks: ['Finish react.js homework.']
+    }
+  }
+  createTask = (task) => {
+    const state = this.state;
+    state.tasks.push(task);
+    this.setState(state);
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <div>
+          <header>
+            <h1>My To-Do List</h1>
+          </header>
+        </div>
+        <div>
+          <Tasks tasks={this.state.tasks} createTask={this.state.createTask}/>
+          <CreateForm/>
+        </div>
       </div>
     );
   }
