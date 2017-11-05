@@ -13,7 +13,7 @@ class Tasks extends Component {
 			return <div className="taskForList" key={i}>{item}</div>
 		})
 		return (
-			<div id="taskContainer">
+			<div className="flex-container">
 				{listTasks}
 				<br/>
 			</div>

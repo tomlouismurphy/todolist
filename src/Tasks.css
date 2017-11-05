@@ -3,9 +3,15 @@
 	height: 150px;
 	width: 250px;
 	border: 2px solid black;
-	padding: 5px
+	padding: 5px;
+	margin: 5px;
 }
 
-#taskContainer {
+.flex-container {
+	display: flex;
 	padding: 10px;
+	flex-direction: row;
+	overflow: scroll;
+	flex-wrap: wrap;
 }
+
