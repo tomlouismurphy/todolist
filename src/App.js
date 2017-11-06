@@ -7,14 +7,15 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      tasks: ["Finish react.js homework."],
+      taskDescription: ["Finish react.js homework.", "Cancel comcast."],
+      taskCompleteTime: ["3 hours", "1 hour"],
       modalUp: false,
       newMovieName: ''
     }
   }
   createTask = (task) => {
     const state = this.state;
-    state.tasks.push(task);
+    state.taskDescription.push(task);
     this.setState(state);
   }
   launchModal = (e) => {
@@ -26,10 +27,10 @@ class App extends Component {
   }
   submitEdit = (newTask) => {
     const state = this.state;
-    for (let i = 0; i < this.state.tasks.length; i++){
-      console.log(this.state.tasks.length);
-      if (this.state.tasks[i] === this.state.newMovieName){
-        state.tasks[i] = newTask;
+    for (let i = 0; i < this.state.taskDescription.length; i++){
+      console.log(this.state.taskDescription);
+      if (this.state.taskDescription[i] === this.state.newMovieName){
+        state.taskDescription[i] = newTask;
       }
     }
     state.modalUp = !state.modalUp;
@@ -38,10 +39,10 @@ class App extends Component {
   }
   removeTask = () => {
     const state = this.state;
-    for (let i = 0; i < this.state.tasks.length; i++){
-      console.log(this.state.tasks.length);
-      if (this.state.tasks[i] === this.state.newMovieName){
-        state.tasks.splice(i, 1);
+    for (let i = 0; i < this.state.taskDescription.length; i++){
+      console.log(this.state.taskDescription.length);
+      if (this.state.taskDescription[i] === this.state.newMovieName){
+        state.taskDescription.splice(i, 1);
       }
     }
     state.modalUp = !state.modalUp;
@@ -57,7 +58,7 @@ class App extends Component {
           </header>
         </div>
         <div>
-          <Tasks tasks={this.state.tasks} launchModal={this.launchModal} modalUp={this.state.modalUp} submitEdit={this.submitEdit} removeTask={this.removeTask}/>
+          <Tasks tasks={this.state.taskDescription} launchModal={this.launchModal} modalUp={this.state.modalUp} submitEdit={this.submitEdit} removeTask={this.removeTask}/>
           <CreateForm createTask={this.createTask}/>
         </div>
       </div>
