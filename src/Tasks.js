@@ -17,9 +17,19 @@ class Tasks extends Component {
 	newEdit = () => {
 		this.props.submitEdit(this.state.newMovieName);
 	}
+	// markTaskComplete = (e) => {
+	// 	for (let i = 0; i < this.props.tasks.length; i++){
+	// 		console.log(e.currentTarget.parentNode);
+	// 		if (e.currentTarget.parentNode.innerHTML.indexOf(this.props.tasks[i]) !== -1){
+	// 			console.log(i);
+	// 		} else {
+	// 			;
+	// 		}
+	// 	}
+	// }
 	render() {
 		const listTasks = this.props.tasks.map((item, i) => {
-			return <div className="taskForList" key={i} onClick={this.props.launchModal}><p>{item}</p></div>
+			return <div className="taskForList" key={i}><p onClick={this.props.launchModal}>{item}</p></div>
 		})
 		const editClass = this.props.modalUp ? 'modal-shown' : 'modal'
 		return (
@@ -33,7 +43,8 @@ class Tasks extends Component {
 			              <span className="close" id="closeModal">&times;</span>
 			      			<p className="taskData">Placeholder text.</p>
 			              <input type="text" value={this.state.newMovieName} onChange={this.editText}/>
-			              <button onClick={this.newEdit}>Submit</button>
+			              <button onClick={this.newEdit}>Edit</button>
+			              <button onClick={this.props.removeTask}>Delete</button>
 	            	</div>
 				</div>
 			</div>

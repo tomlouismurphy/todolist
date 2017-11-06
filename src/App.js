@@ -18,7 +18,7 @@ class App extends Component {
     this.setState(state);
   }
   launchModal = (e) => {
-    const selectedTask = e.currentTarget.childNodes[0].innerHTML;
+    const selectedTask = e.currentTarget.innerHTML;
     const state = this.state;
     state.modalUp = !state.modalUp;
     state.newMovieName = selectedTask;
@@ -36,6 +36,18 @@ class App extends Component {
     state.newMovieName = '';
     this.setState(state);
   }
+  removeTask = () => {
+    const state = this.state;
+    for (let i = 0; i < this.state.tasks.length; i++){
+      console.log(this.state.tasks.length);
+      if (this.state.tasks[i] === this.state.newMovieName){
+        state.tasks.splice(i, 1);
+      }
+    }
+    state.modalUp = !state.modalUp;
+    state.newMovieName = '';
+    this.setState(state);
+  }
   render() {
     return (
       <div>
@@ -45,7 +57,7 @@ class App extends Component {
           </header>
         </div>
         <div>
-          <Tasks tasks={this.state.tasks} launchModal={this.launchModal} modalUp={this.state.modalUp} submitEdit={this.submitEdit}/>
+          <Tasks tasks={this.state.tasks} launchModal={this.launchModal} modalUp={this.state.modalUp} submitEdit={this.submitEdit} removeTask={this.removeTask}/>
           <CreateForm createTask={this.createTask}/>
         </div>
       </div>
