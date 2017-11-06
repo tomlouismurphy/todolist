@@ -17,6 +17,9 @@ class CreateForm extends Component {
 		e.preventDefault();
 		console.log(this.props);
 		this.props.createTask(this.state.inputValue);
+		const state = this.state;
+		state.inputValue = '';
+		this.setState(state);
 	}
 	render() {
 		return (
